@@ -2,9 +2,9 @@
 
 ### Project Overview
 **Project Title**: System Threat Forecaster  
-**Course**: Machine Learning, BS in Data Science, IIT Madras  
+**Course**: Machine Learning Project, BS in Data Science, IIT Madras  
 **Grade Achieved**: S Grade (Highest)  
-**Rank**: 26 (based on accuracy score)
+**Rank**: 26 from amoung 1700+ participants (based on accuracy score)
 
 **Objective**:  
 The aim of this machine learning project is to predict the likelihood of systems getting infected by various malware families using telemetry data collected by antivirus software. The problem is formulated as a binary classification task where the target variable indicates whether a machine is infected (1) or not (0).

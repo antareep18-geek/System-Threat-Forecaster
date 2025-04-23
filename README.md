@@ -1,26 +1,31 @@
 ## Project Documentation: System Threat Forecaster
 
 ### Project Overview
-**Project Title**: System Threat Forecaster  
-**Course**: Machine Learning Project, BS in Data Science, IIT Madras  
-**Grade Achieved**: S Grade (Highest)  
-**Rank**: 26 from amoung 1700+ participants (based on accuracy score)
 
-**Objective**:  
+**Project Title**: System Threat Forecaster\
+**Course**: Machine Learning Project, BS in Data Science, IIT Madras\
+**Grade Achieved**: S Grade (Highest)\
+**Rank**: 26 amoung 1700+ participants (based on accuracy score)
+
+**Objective**:\
 The aim of this machine learning project is to predict the likelihood of systems getting infected by various malware families using telemetry data collected by antivirus software. The problem is formulated as a binary classification task where the target variable indicates whether a machine is infected (1) or not (0).
 
 ### Dataset Description
+
 The dataset comprises telemetry information per machine. The training data (`train.csv`) includes a target column, while the test data (`test.csv`) does not. The features cover antivirus configuration, system specifications, OS details, geographical identifiers, and more.
 
 **Key Files**:
+
 - `train.csv`: Training data with labeled `target`
 - `test.csv`: Testing data without labels
 - `sample_submission.csv`: Template for submission format
 
 **Evaluation Metric**:
+
 - `accuracy_score()` between predicted classes and ground truth labels
 
-### Feature Description (Not Exhaustive - Check code for details)
+### Feature Description (Not Exhaustive - Check Code For Details)
+
 - `MachineID`: Unique ID for each machine
 - `ProductName`, `EngineVersion`, `AppVersion`, `SignatureVersion`: Antivirus product metadata
 - `IsBetaUser`, `IsPassiveModeEnabled`, `RealTimeProtectionState`: Antivirus usage details
@@ -37,6 +42,7 @@ The dataset comprises telemetry information per machine. The training data (`tra
 ## Methodology
 
 ### 1. **Exploratory Data Analysis (EDA)**
+
 - **Data Dimensions & Types**: Verified column types, missing values, and value distributions.
 - **Class Distribution**: Checked imbalance in the `target` variable.
 - **Univariate Analysis**: Histograms, bar charts for categorical variables.
@@ -44,6 +50,7 @@ The dataset comprises telemetry information per machine. The training data (`tra
 - **Date Features**: Converted `DateAS` and `DateOS` to datetime objects and calculated gaps and recency-based features.
 
 ### 2. **Data Preprocessing & Feature Engineering**
+
 - **Handling Missing Values**:
   - Mode imputation for categorical values.
   - Median imputation for numerical features.
@@ -55,11 +62,13 @@ The dataset comprises telemetry information per machine. The training data (`tra
   - Removed features with more than 90% missing or single value across rows.
 
 ### 3. **Feature Selection & Dimensionality Reduction**
+
 - **Variance Threshold**: Removed features with low variance.
 - **Correlation Matrix**: Dropped highly correlated variables to reduce redundancy.
 - **Tree-based Feature Importance**: Used model feature importances (XGBoost/LightGBM) to rank top features.
 
 ### 4. **Model Building & Evaluation**
+
 - **Models Tried**:
   - LightGBM
   - XGBoost
@@ -68,16 +77,19 @@ The dataset comprises telemetry information per machine. The training data (`tra
   - Stratified K-Fold Cross Validation (5-fold) for stable performance estimation.
 - **Performance Metric**: Accuracy Score
 
-**Best Performing Model**:  
-- **Model**: LightGBM
+**Best Performing Model**:
+
+- **Model**: Voting Classifier combining LightGBM and HistGradientBoostingClassifier (HistGBM)
+- **Approach**: A soft voting ensemble of LightGBM and HistGBM was used to improve generalization.
 - **Cross-validation Accuracy**: Highest among all tried models
 
 ### 5. **Hyperparameter Tuning**
-- **Method**: Grid Search and Randomized Search on LightGBM
+
+- **Method**: Grid Search and Randomized Search on LightGBM and HistGradientBoosting
 - **Parameters Tuned**:
-  - `num_leaves`
-  - `max_depth`
-  - `learning_rate`
+  - `num_leaves`, `min_samples_leaf`
+  - `max_depth`, `max_bins`, `max_iter`
+  - `learning_rate`, `l2_regularization`
   - `n_estimators`
   - `subsample`, `colsample_bytree`
 - **Early Stopping**: Used validation set to prevent overfitting
@@ -85,6 +97,7 @@ The dataset comprises telemetry information per machine. The training data (`tra
 ---
 
 ## Key Insights
+
 - **System protection features** (`IsSystemProtected`, `RealTimeProtectionState`, `FirewallEnabled`) were strong predictors of infection.
 - **Antivirus metadata** like `SignatureVersion`, `EngineVersion` correlated well with `target`.
 - **Time Gap** between signature date and OS update was significant—machines with long update gaps were more vulnerable.
@@ -93,18 +106,21 @@ The dataset comprises telemetry information per machine. The training data (`tra
 ---
 
 ## Final Results
-- **Final Model**: LightGBM with tuned hyperparameters
+
+- **Final Model**: Voting Classifier with LightGBM and HistGBM (soft voting)
 - **Test Set Prediction**: Submitted on Kaggle-styled platform using the given template
-- **Final Accuracy Score**: Competitive with top ranks; ranked **26th overall**
+- **Final Accuracy Score**: 0.63820 ; ranked **26th overall**
 
 ---
 
 ## Conclusion
+
 This project covered the full machine learning workflow from data cleaning to hyperparameter tuning. A high degree of attention was given to domain-specific features like system protection and signature update recency. The accuracy metric and cross-validation ensured reliable model selection. The project earned an S grade and performed in the top 30, showcasing both technical and analytical strengths.
 
 ---
 
 ## Future Improvements
+
 - Explore ensemble models like stacking
 - Incorporate interaction features via polynomial or target encoding
 - Use anomaly detection as pre-step to identify compromised systems
@@ -112,5 +128,7 @@ This project covered the full machine learning workflow from data cleaning to hy
 ---
 
 ## Acknowledgements
+
 - Faculty and TAs of the Machine Learning course, BS in Data Science, IIT Madras
-- Open-source community (scikit-learn, LightGBM, XGBoost, pandas, matplotlib, seaborn)
+- Open-source community (scikit-learn, LightGBM, XGBoost, pandas, matplotlib, seaborn, scipy, etc.)
+

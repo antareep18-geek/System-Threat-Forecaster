@@ -20,7 +20,7 @@ The dataset comprises telemetry information per machine. The training data (`tra
 **Evaluation Metric**:
 - `accuracy_score()` between predicted classes and ground truth labels
 
-### Feature Description (Selected Columns)
+### Feature Description (Not Exhaustive - Check code for details)
 - `MachineID`: Unique ID for each machine
 - `ProductName`, `EngineVersion`, `AppVersion`, `SignatureVersion`: Antivirus product metadata
 - `IsBetaUser`, `IsPassiveModeEnabled`, `RealTimeProtectionState`: Antivirus usage details

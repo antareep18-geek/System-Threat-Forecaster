@@ -132,5 +132,7 @@ This project covered the full machine learning workflow from data cleaning to hy
 - Faculty and TAs of the Machine Learning Project course, BS in Data Science, IIT Madras
 - Open-source community (scikit-learn, LightGBM, XGBoost, pandas, matplotlib, seaborn, scipy, etc.)
 
+---
+
 ## Full Leaderboard
 [Click Here](https://docs.google.com/spreadsheets/d/e/2PACX-1vRigMmkEURIVeBuSbqbpFqLyJ0zQSxG5vemx5JVdj21qMW6fWM4ymN28Q8CMIbcemiNYEEzfmSeGhBR/pubhtml?gid=1702670204&single=true)

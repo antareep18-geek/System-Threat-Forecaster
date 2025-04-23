@@ -133,4 +133,4 @@ This project covered the full machine learning workflow from data cleaning to hy
 - Open-source community (scikit-learn, LightGBM, XGBoost, pandas, matplotlib, seaborn, scipy, etc.)
 
 ## Full Leaderboard
-<a href=https://docs.google.com/spreadsheets/d/e/2PACX-1vRigMmkEURIVeBuSbqbpFqLyJ0zQSxG5vemx5JVdj21qMW6fWM4ymN28Q8CMIbcemiNYEEzfmSeGhBR/pubhtml?gid=1702670204&single=true>Click Here</a>
+[Click Here](https://docs.google.com/spreadsheets/d/e/2PACX-1vRigMmkEURIVeBuSbqbpFqLyJ0zQSxG5vemx5JVdj21qMW6fWM4ymN28Q8CMIbcemiNYEEzfmSeGhBR/pubhtml?gid=1702670204&single=true)
